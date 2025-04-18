@@ -2,7 +2,7 @@ import { Admin, Resource } from 'react-admin';
 import authProvider from './providers/authProvider';
 import dataProvider from './providers/dataProvider';
 import LoginPage from './pages/Login';
-import { ProductList } from './resources/products';
+import { ProductList, ProductCreate, ProductEdit  } from './resources/products';
 
 const App = () => {
   return (
@@ -11,7 +11,11 @@ const App = () => {
       authProvider={authProvider}
       dataProvider={dataProvider}
     >
-      <Resource name="products" list={ProductList} />
+      <Resource name="products" 
+      list={ProductList} 
+      create={ProductCreate}
+      edit={ProductEdit} 
+      />
     </Admin>
   );
 };

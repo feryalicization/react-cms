@@ -35,11 +35,15 @@ const fetchJson = async (
   const auth = JSON.parse(localStorage.getItem('auth') || '{}');
   const token = auth?.token;
 
-  const headers: HeadersInit = {
+  const headers: Record<string, string> = {
     Accept: 'application/json',
     Authorization: `Bearer ${token}`,
-    ...(options.headers || {}),
+    ...(options.headers as Record<string, string>),
   };
+
+  if (options.body && !headers['Content-Type']) {
+    headers['Content-Type'] = 'application/json';
+  }
 
   const response = await fetch(url, {
     ...options,

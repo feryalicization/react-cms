@@ -17,6 +17,7 @@ export const ProductList = () => (
     <Datagrid rowClick="edit">
       <TextField source="id" />
       <TextField source="name" />
+      <TextField source="description" />
       <NumberField source="price" />
       <EditButton />
       <DeleteButton />
@@ -39,6 +40,7 @@ export const ProductEdit = () => (
     <SimpleForm>
       <TextInput source="id" disabled />
       <TextInput source="name" />
+      <TextInput source="description" />
       <NumberInput source="price" />
     </SimpleForm>
   </Edit>
